@@ -1,0 +1,23 @@
+
+%h2 Address book
+
+%table.table.table-striped
+    %thead
+        %tr
+            %th Address
+            %th Telephone
+            %th Name
+            %th Surname
+            %th E-mail
+            %th
+    - @addresses.each do |address|
+        %tr
+            %th= address.address
+            %th= address.telephone
+            %th= address.name
+            %th= address.surname
+            %th= address.email
+            %th
+                = link_to "Read more", addresses_path(id: address.id), :class =>'btn btn-outline-primary'
+                = link_to "Edit", edit_addresses_path(id: address.id), :class => 'btn btn-outline-secondary'
+                = link_to "Delete", addresses_path(id: address.id), method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-outline-danger'

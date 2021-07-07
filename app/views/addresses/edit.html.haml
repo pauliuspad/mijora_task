@@ -1,0 +1,14 @@
+%h2 Edit address
+
+
+= simple_form_for :address, url: addresses_path(id: @address.id), method: :patch do |f|
+    - if @address.errors.any?
+        - @address.errors.full_messages.each do |msg|
+            %div.alert.alert-danger= msg
+
+    .mb-3= f.input :address, :class => 'form-control' 
+    .mb-3= f.input :telephone, :class => 'form-control' 
+    .mb-3= f.input :name, :class => 'form-control' 
+    .mb-3= f.input :surname, :class => 'form-control' 
+    .mb-3= f.input :email, :class => 'form-control' 
+    .mb-3= f.submit :Add, :class => 'btn btn-primary' 
